@@ -19,6 +19,9 @@ class PontoTuristicoViewSet(ModelViewSet):
         nome = self.request.query_params.get('nome', None)
         descricao = self.request.query_params.get('descricao', None)
 
+        # para de olhar para o id nas buscas e passa a olhar para 'nome'
+        # lookup_field = 'nome'
+
         # LAZY LOAD
         queryset = PontoTuristico.objects.all()
         if id:
