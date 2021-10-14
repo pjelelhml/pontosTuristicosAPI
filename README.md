@@ -76,4 +76,6 @@ Este projeto esta sobe a licença [MIT](./LICENSE).
 ### api feita com pouco acoplamento
 ### permite fácil reuso
 
-#### Feito por: Paulo Leite
+
+
+#### feito por: Paulo Leite
