@@ -15,6 +15,12 @@
  <a href="#autor">Autor</a>
 </p>
 
+## 💻 Sobre o projeto
+
+BREVE DESCRIÇÃO
+
+---
+
 # Clone este repositório
 $ git clone 
 
@@ -34,6 +40,36 @@ $ pip install restframework
 $ python manage.py runserver
 
 # O servidor inciará na porta:8000 - acesse <http://localhost:8000> 
+
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Django](https://www.djangoproject.com/)
+- [Django-rest-framework](https://www.django-rest-framework.org/)
+- [Python](https://www.python.org/)
+
+### Autor
+---
+
+<a href="https://github.com/pjelelhml/">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/37052811?v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Paulo Leite</b></sub></a> <a href="https://github.com/pjelelhml" title="">🚀</a>
+
+
+Feito por Paulo 👋🏽 Entre em contato pelas redes sociais abaixo ou pelo meu perfil!
+
+[![Linkedin Badge](https://img.shields.io/badge/-Paulo-black?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/paulohml/)](https://www.linkedin.com/in/paulohml/) 
+[![Gmail Badge](https://img.shields.io/badge/-paulohmleite1@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:paulohmleite1@gmail.com)](paulohmleite1@gmail.com)
+
+---
+
+## 📝 Licença
+
+Este projeto esta sobe a licença [MIT](./LICENSE).
+
+---
 
 
 
