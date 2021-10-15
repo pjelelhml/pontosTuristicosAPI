@@ -1,5 +1,7 @@
 from rest_framework import filters
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter
@@ -12,15 +14,16 @@ class PontoTuristicoViewSet(ModelViewSet):
 
     serializer_class = PontoTuristicoSerializer
     filter_backends = [filters.SearchFilter]
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
     search_fields = ['nome', 'descricao', 'enderecos__linha1']
+    # lookup_field = 'nome'
 
     def get_queryset(self):
         id = self.request.query_params.get('id', None)
         nome = self.request.query_params.get('nome', None)
         descricao = self.request.query_params.get('descricao', None)
 
-        # para de olhar para o id nas buscas e passa a olhar para 'nome'
-        # lookup_field = 'nome'
 
         # LAZY LOAD
         queryset = PontoTuristico.objects.all()
