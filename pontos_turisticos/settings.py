@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from decouple import config
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +29,9 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pontos-tutisticos-html.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*.herokuapp.com', 'localhost', '127.0.0.1']
+
+django_heroku.settings(locals())
 
 
 # Application definition
