@@ -1,39 +1,35 @@
-from rest_framework import filters
-from rest_framework.authentication import TokenAuthentication
+from django.http import HttpResponse
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly
-from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter
+from rest_framework.viewsets import ModelViewSet
 from core.models import PontoTuristico
 from .serializers import PontoTuristicoSerializer
 
 
-
 class PontoTuristicoViewSet(ModelViewSet):
-
+    """
+    A simple ViewSet for viewing and editing accounts.
+    """
     serializer_class = PontoTuristicoSerializer
-    filter_backends = [filters.SearchFilter]
-    # permission_classes = (IsAuthenticated,)
-    authentication_classes = (TokenAuthentication,)
-    search_fields = ['nome', 'descricao', 'enderecos__linha1']
-    # lookup_field = 'nome'
+    filter_backends = (SearchFilter,)
+    search_fields = ('nome', 'descricao', 'endereco__linha1')
+    lookup_field = 'id'
 
     def get_queryset(self):
         id = self.request.query_params.get('id', None)
         nome = self.request.query_params.get('nome', None)
         descricao = self.request.query_params.get('descricao', None)
-
-
-        # LAZY LOAD
         queryset = PontoTuristico.objects.all()
+
         if id:
             queryset = PontoTuristico.objects.filter(pk=id)
+
         if nome:
             queryset = queryset.filter(nome__iexact=nome)
+
         if descricao:
             queryset = queryset.filter(descricao__iexact=descricao)
-        # DEIXA DE SER LAZY LOAD
+
         return queryset
 
     def list(self, request, *args, **kwargs):
@@ -54,10 +50,21 @@ class PontoTuristicoViewSet(ModelViewSet):
     def partial_update(self, request, *args, **kwargs):
         return super(PontoTuristicoViewSet, self).partial_update(request, *args, **kwargs)
 
-    @action(methods=['get'], detail=True)
+    @action(methods=['post', 'get'], detail=True)
     def denunciar(self, request, pk=None):
         pass
 
     @action(methods=['get'], detail=False)
     def teste(self, request):
         pass
+
+    @action(methods=['post'], detail=True)
+    def associa_atracoes(self, request, id):
+        atracoes = request.data['ids']
+
+        ponto = PontoTuristico.objects.get(id=id)
+
+        ponto.atracoes.set(atracoes)
+
+        ponto.save()
+        return HttpResponse('Ok')
