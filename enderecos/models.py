@@ -8,7 +8,7 @@ class Endereco(models.Model):
     pais = models.CharField(max_length=70)
     latitude = models.IntegerField(null=True, blank=True)
     longitude = models.IntegerField(null=True, blank=True)
-    cep = models.CharField(max_length=50, null=True, blank=True)
+    CEP = models.CharField(max_length=50, null=True, blank=True)
 
 
     def __str__(self):
