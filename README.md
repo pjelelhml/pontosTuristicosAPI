@@ -2,27 +2,31 @@
 
 <h1>PONTOS TURISTICOS</h1>
 <h4 align="center"> 
-	🚧  Rest framework API 🚀 Em construção...  🚧
+	🚧  Rest framework API 🚀 Construida!  🚧
 </h4>
 <img src="https://img.shields.io/static/v1?label=Python&message=DJANGO&color=green&style=for-the-badge&logo=django" />
 
-<p align="center">
+<!-- <p align="center">
  <a href="#objetivo">Objetivo</a> •
  <a href="#roadmap">Roadmap</a> • 
  <a href="#tecnologias">Tecnologias</a> • 
  <a href="#contribuicao">Contribuição</a> • 
  <a href="#licenc-a">Licença</a> • 
  <a href="#autor">Autor</a>
-</p>
+</p> -->
 
 ## 💻 Sobre o projeto
 
-BREVE DESCRIÇÃO
+API para exibir informações, comentários e avaliações sobre ponto turísticos. Segue abaixo a estrutura dos endpoints.
+
+![image](https://user-images.githubusercontent.com/37052811/137640899-9c2c1bd9-7de0-4d3f-9ddc-9bf33fc18fea.png)
+
+Api com pouco acoplamento para permitir fácil reutulização.
 
 ---
 
 # Clone este repositório
-$ git clone 
+$ git clone https://github.com/pjelelhml/pontosTuristicosAPI.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd pontos_turisticos
@@ -70,12 +74,5 @@ Feito por Paulo 👋🏽 Entre em contato pelas redes sociais abaixo ou pelo meu
 Este projeto esta sobe a licença [MIT](./LICENSE).
 
 ---
-
-
-
-### api feita com pouco acoplamento
-### permite fácil reuso
-
-
 
 #### feito por: Paulo Leite
