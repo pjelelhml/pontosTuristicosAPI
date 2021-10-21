@@ -10,9 +10,4 @@ class EnderecoSerializer(ModelSerializer):
         model = Endereco
         fields = [
             'linha1', 'linha2', 'cidade', 'estado', 'pais',
-            'latitude', 'longitude']
-
-    slug = SlugField(
-        max_length=100,
-        validators=[UniqueValidator(queryset=Endereco.objects.all())]
-    )
+            'latitude', 'longitude', 'cep']
